@@ -1,0 +1,221 @@
+<!--
+Yukti Ganesh Mandal - Single-file static website (index.html)
+Replace the following files in the same folder before uploading to GitHub Pages:
+  - assets/logo.png      (your golden logo)
+  - assets/ganesh.jpg    (your booked Ganesh photo)
+  - assets/aarti.mp3     (Ganpati aarti music)
+  - assets/gallery/*     (optional gallery images)
+
+After replacing assets, zip the folder and upload to GitHub Pages (or push to a repo named <username>.github.io).
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yukti Ganesh Mandal • Ganapati Bappa Morya</title>
+  <meta name="description" content="Yukti Ganesh Mandal — Ganapati Aagman 27 Aug • Visarjan 04 Sept" />
+  <style>
+    :root{
+      --bg:#0f0f10; --card:#121214; --gold:#cf9b3a; --muted:#bfc0c2; --accent:rgba(207,155,58,0.12);
+      --maxw:1100px; --radius:14px; font-family: 'Segoe UI', Roboto, system-ui, Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#0b0b0c 0%, #0f0f10 100%);color:#fff;line-height:1.4}
+    header{background:transparent;padding:14px 20px;position:sticky;top:0;z-index:40}
+    .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{height:54px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .brand{font-weight:700;letter-spacing:1px}
+    nav{margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:600}
+    nav a:hover{color:var(--gold)}
+
+    .hero{max-width:var(--maxw);margin:26px auto;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:grid;grid-template-columns:1fr;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:18px}
+    .hero-left{position:relative;border-radius:12px;overflow:hidden}
+    .hero-left .bg{background:#000 url('assets/ganesh.jpg') center/cover no-repeat;height:420px;display:flex;align-items:flex-end;padding:22px}
+    .overlay{background:linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.6) 100%);width:100%;padding:22px}
+    .slogan{font-size:28px;color:var(--gold);font-weight:800;letter-spacing:2px}
+    .sub{color:#f3f3f3;opacity:0.95;margin-top:6px}
+
+    .counts{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .count-card{background:rgba(255,255,255,0.02);padding:10px 14px;border-radius:10px;min-width:120px;text-align:center}
+    .count-card .label{font-size:13px;color:var(--muted);margin-bottom:6px}
+    .count-card .val{font-size:20px;font-weight:800;color:#fff}
+
+    .controls{display:flex;gap:10px;align-items:center;margin-top:10px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .btn.gold{border-color:var(--gold);color:var(--gold)}
+
+    main{max-width:var(--maxw);margin:20px auto;padding:18px}
+    section.card{background:var(--card);padding:18px;border-radius:12px;margin-bottom:16px}
+    h2{margin:0 0 8px 0;color:var(--gold)}
+    p{color:var(--muted);margin:0}
+
+    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .events li{margin:10px 0;color:#f3f3f3}
+
+    .gallery{display:flex;gap:8px;flex-wrap:wrap}
+    .gallery img{height:120px;border-radius:10px;object-fit:cover}
+
+    footer{max-width:var(--maxw);margin:18px auto;padding:18px;color:var(--muted);text-align:center}
+
+    /* responsive */
+    @media (max-width:820px){.grid-2{grid-template-columns:1fr}.hero-left .bg{height:320px}.logo img{height:44px}}
+    @media (max-width:480px){.slogan{font-size:20px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Yukti Ganesh Mandal logo" />
+        <div>
+          <div class="brand">SHREE YUKTI GANESH MANDAL</div>
+          <div style="font-size:12px;color:var(--muted)">GANAPATI BAPPA MORIYA</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Photos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="bg">
+          <div class="overlay">
+            <div class="slogan">GANAPATI BAPPA MORIYA</div>
+            <div class="sub">Shree Yukti Ganesh Mandal • Aagman: 27 Aug • Visarjan: 04 Sept</div>
+
+            <div class="counts" style="margin-top:12px">
+              <div class="count-card">
+                <div class="label">AAGMAN (27 Aug)</div>
+                <div class="val" id="count-aagman">--</div>
+              </div>
+              <div class="count-card">
+                <div class="label">VISARJAN (04 Sept)</div>
+                <div class="val" id="count-visarjan">--</div>
+              </div>
+            </div>
+
+            <div class="controls">
+              <button class="btn gold" id="open-events">View Events</button>
+              <button class="btn" id="toggle-music">Pause Music</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <main>
+    <div class="grid-2">
+      <div>
+        <section class="card" id="about">
+          <h2>About Yukti Ganesh Mandal</h2>
+          <p>
+            "Yukti" signifies wisdom, strategy and togetherness. Shree Yukti Ganesh Mandal brings the local community together to celebrate
+            devotion and culture. Our mandal aims to spread joy, preserve tradition, and support local members through the festival.
+          </p>
+        </section>
+
+        <section class="card" id="events">
+          <h2>Events & Updates</h2>
+          <ul class="events">
+            <li><strong>27 Aug — Ganesh Aagman</strong>: Idol arrival & Pranapratishtha at 6:00 PM (Darshan after 7 PM)</li>
+            <li><strong>28–03 Sept — Daily Aarti & Bhajan</strong>: Morning 7:00 AM | Evening 7:30 PM</li>
+            <li><strong>04 Sep — Visarjan</strong>: Procession starts at 3:00 PM</li>
+            <li>Stay tuned for cultural programs & announcements.</li>
+          </ul>
+        </section>
+
+        <section class="card" id="gallery">
+          <h2>Photos & Videos</h2>
+          <div class="gallery">
+            <img src="assets/ganesh.jpg" alt="Ganesh" />
+            <!-- Add more images in assets/gallery/ and include here -->
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card">
+          <h2>Contact & Donate</h2>
+          <p>WhatsApp: <a id="wa-link" href="#" style="color:var(--gold);text-decoration:none">Click to message</a></p>
+          <p>Email: <span style="color:var(--muted)">yukti@example.com</span></p>
+          <p>Location: <span style="color:var(--muted)">Your area name here</span></p>
+        </section>
+
+        <section class="card">
+          <h2>Quick Links</h2>
+          <p><a href="#gallery" style="color:var(--gold)">Photos & Videos</a></p>
+          <p><a href="#contact" style="color:var(--gold)">Contact Us</a></p>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer id="contact">
+    <div style="max-width:var(--maxw);margin:0 auto;padding:16px">© Shree Yukti Ganesh Mandal • Ganapati Bappa Morya</div>
+  </footer>
+
+  <!-- Background audio (replace assets/aarti.mp3) -->
+  <audio id="aarti" src="assets/aarti.mp3" autoplay loop></audio>
+
+  <script>
+    // --- Countdown logic ---
+    const aagmanDate = new Date('2025-08-27T18:00:00'); // local time
+    const visarjanDate = new Date('2025-09-04T15:00:00');
+
+    function fmt(diff){
+      if(diff<=0) return '0d 0h 0m';
+      const d = Math.floor(diff/86400000);
+      diff -= d*86400000;
+      const h = Math.floor(diff/3600000);
+      diff -= h*3600000;
+      const m = Math.floor(diff/60000);
+      return `${d}d ${h}h ${m}m`;
+    }
+
+    function updateCounts(){
+      const now = new Date();
+      document.getElementById('count-aagman').textContent = fmt(aagmanDate - now);
+      document.getElementById('count-visarjan').textContent = fmt(visarjanDate - now);
+    }
+    updateCounts(); setInterval(updateCounts, 30000);
+
+    // --- Music controls ---
+    const audio = document.getElementById('aarti');
+    const btn = document.getElementById('toggle-music');
+    let playing = true;
+    // browsers often block autoplay; try to play after user gesture
+    audio.play().catch(()=>{ playing=false; btn.textContent='Play Music' });
+
+    btn.addEventListener('click', ()=>{
+      if(playing){ audio.pause(); btn.textContent='Play Music'; playing=false } else{ audio.play(); btn.textContent='Pause Music'; playing=true}
+    });
+
+    // --- Events button scroll ---
+    document.getElementById('open-events').addEventListener('click', ()=>{
+      document.getElementById('events').scrollIntoView({behavior:'smooth'});
+    });
+
+    // --- WhatsApp link (replace number) ---
+    const waNumber = '919999999999'; // replace with your number (country code+number)
+    document.getElementById('wa-link').href = `https://wa.me/${waNumber}`;
+
+    // Accessibility: show snackbar if autoplay blocked
+    // (simple console note for now)
+    audio.addEventListener('play', ()=>console.log('Aarti started'));
+  </script>
+</body>
+</html>
